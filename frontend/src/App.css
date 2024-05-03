@@ -1,0 +1,724 @@
+:root {
+  --main: #17182D;
+  --secondary: #15C9F0;
+  --primaryColor: rgb(235, 37, 54);
+  --secondaryColor: #f7bcf7;
+  --lightColor: #ffffff;
+  --bgColor-1: #171a1c;
+  --bgColor-2: #22282a;
+  --pading: 8%;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--main);
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  color: white;
+  font-weight: 500;
+  padding: 0px 32px;
+}
+
+.section1 {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.secCol {
+  color: var(--secondary);
+}
+
+.section1 .logo img {
+  width: 50px;
+
+
+}
+
+.section2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.iteam {
+  padding: 10px;
+  flex-grow: 1;
+  flex-basis: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+.section2 .iteam {
+  margin: 0px 16px;
+}
+
+
+.iteam.selected {
+  border-bottom: 2px solid white;
+  /* Add an underline */
+}
+
+.userinfo {
+  display: flex;
+  align-items: center;
+}
+
+/* .btn-log{
+  align-self: center;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 13px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 38px;
+  padding: 8px 12px;
+  border: 2px solid #222222;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: var(--primaryColor);
+  color: #ffffff;
+}
+.btn-log.blue{
+  background: var(--secondary); 
+  color: black;
+}
+
+.btn-log:hover {
+  background: var(--main);
+  border: 2px solid var(--primaryColor);
+  color: white;
+} */
+.btn-log {
+  align-self: center;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 38px;
+  padding: 8px 12px;
+  border: none;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: var(--main);
+  color: #ffffff;
+}
+
+.btn-log.blue {
+  border: 2px solid #222222;
+  background: var(--primaryColor);
+  color: white;
+}
+
+.blue:hover {
+  background: var(--main);
+  border: 2px solid var(--secondary);
+  color: white;
+}
+
+
+.filterbox {
+  padding: 10px 10px;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  border-radius: 38px;
+  margin: 10px auto;
+}
+
+.sport {
+  position: relative;
+  width: 50px;
+  height: 50px;
+
+}
+
+.sport img {
+  width: 46px;
+  height: 46px;
+}
+
+.sport.selected img {
+  padding: 10px;
+  background-color: rgba(245, 245, 245, 0.2);
+  border-radius: 50%;
+}
+
+.circle {
+  width: 55px;
+  height: 55px;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  /* transform: translate(-50%, -50%); */
+  background-color: rgba(245, 245, 245, 0.2);
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.fields {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.field {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: min-content;
+  background: rgba(245, 245, 245, 0.2);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px;
+  height: 327px;
+  justify-content: space-around;
+}
+
+.fields .field img {
+  height: 166px;
+  width: 250px;
+  border-radius: 5px;
+}
+
+.field button {
+  background-color: var(--secondary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  /* Add transition for smoother hover effect */
+  font-family: 'Be Vietnam Pro', sans-serif;
+  align-self: flex-end;
+}
+
+.carsousel {
+  overflow: hidden;
+  cursor: grab;
+}
+
+.inner-carsousel {
+  display: flex;
+
+}
+
+.item {
+  position: fixed;
+  width: 25rem;
+  height: 20rem;
+  /* min-width: 25rem; */
+
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.item img {
+  height: 100%;
+  width: 100%;
+}
+
+.underline {
+  margin: 0 auto;
+  width: 100%;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  padding: 2%;
+  background: var(--secondary);
+}
+
+.theboss {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+
+}
+
+.the {
+  display: flex;
+}
+
+.wow {
+  display: flex;
+  flex-direction: column;
+}
+
+.card2ndone {
+  display: flex;
+}
+
+.card2ndtwo {
+  display: flex;
+  flex-direction: column;
+}
+
+.field.open {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  width: 600px;
+  height: 400px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+
+/* slideShow style */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+
+  to {
+    opacity: 1
+  }
+}
+
+/* loading style */
+/* HTML: <div class="loader"></div> */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  /* Horizontally center */
+  align-items: center;
+  /* Vertically center */
+  height: 65vh;
+  /* Set height to fill the viewport vertically */
+}
+
+.loader {
+  width: 130px;
+  height: 4px !important;
+  --c: no-repeat linear-gradient(#15C9F0 0 0);
+  background: var(--c), var(--c), #d7b8fc;
+  background-size: 60% 100%;
+  animation: l16 10s infinite;
+
+}
+
+@keyframes l16 {
+  0% {
+    background-position: -150% 0, -150% 0
+  }
+
+  66% {
+    background-position: 250% 0, -150% 0
+  }
+
+  100% {
+    background-position: 250% 0, 250% 0
+  }
+}
+
+/* ismail css */
+.hero {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* background-color: #bbb; */
+  height: 100%;
+  padding: var(--pading);
+  gap: 10px;
+  text-align: center;
+}
+
+.welcome button {
+  align-self: center;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  border-radius: 38px;
+  padding: 13px 23px;
+  border: 2px solid #222222;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
+  background: var(--primaryColor);
+  color: #ffffff;
+}
+
+.welcome button:hover {
+  background: var(--main);
+  border: 2px solid var(--primaryColor);
+}
+
+.heroImage {
+  align-self: flex-end;
+}
+
+.heroImage img {
+  width: 400px;
+}
+
+.Services {
+  display: flex;
+  flex-direction: column;
+  /* background-color: var(--primaryColor); */
+  margin: 0 auto;
+}
+
+.Service {
+  padding: var(--pading);
+  display: flex;
+  text-align: right;
+  color: black;
+  background-color: white;
+  width: 97.8vw;
+  margin: 0 -9vw;
+  align-items: flex-start;
+  text-align: center;
+}
+
+.Service.r2 {
+  flex-direction: row-reverse;
+  background-color: var(--main);
+  text-align: left;
+  color: var(--secondaryColor);
+}
+
+.Service img {
+  width: 300px;
+  border-radius: 30px;
+}
+
+.Service h2 {
+  color: var(--secondary);
+  font-size: xx-large;
+}
+
+.Service span {
+  align-self: center;
+}
+
+.desc {
+
+  /* background-color: #22282a; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0px 32px;
+}
+
+.desc p {
+  margin: 32px;
+}
+
+.Service .material-symbols-outlined {
+  margin: 16px;
+}
+
+@media screen and (max-width: 992px) {
+  .Service {
+    flex-direction: column;
+  }
+}
+
+.booking-list {
+  display: flex;
+  flex-direction: row;
+  padding: 15px;
+  color: white;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.booking-list h3 {
+  margin-bottom: 10px;
+}
+
+.booking-list .horizontal-card {
+  margin-bottom: 15px;
+}
+
+.field-horizontal {
+  color: #ffffff;
+  display: flex;
+  width: 48%;
+  background: rgba(245, 245, 245, 0.2);
+  padding: 20px;
+  margin: 8px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  /* margin: 20px auto; */
+}
+
+.field-horizontal img {
+  width: 250px;
+  height: 166px;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.field-horizontal .details {
+  flex: 1;
+}
+
+.field-horizontal h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.field-horizontal p {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.field-horizontal button {
+  background-color: var(--secondary);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.field-horizontal button:hover {
+  background-color: #15C9F0;
+}
+
+.dash {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  color: white;
+}
+
+.hii {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin-top: -50px;
+  margin-left: 50px;
+}
+
+.card {
+  --main-color: #000;
+  --submain-color: #78858F;
+  --bg-color: #fff;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+  background: var(--secondary);
+  margin-right: 30px;
+  margin-top: 45px;
+}
+
+.card__img {
+  height: 100px;
+  width: 100%;
+  border-radius: 20px 20px 0 0;
+
+}
+
+.card__img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px 20px 0 0;
+  object-fit: cover;
+
+}
+
+.card__avatar {
+  /* position: absolute; */
+  width: 114px;
+  height: 114px;
+  background: var(--bg-color);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
+.card__title {
+  /* margin-top: 60px; */
+  font-weight: 500;
+  font-size: 18px;
+  color: var(--main-color);
+  text-align: center;
+}
+
+.ds-info {
+  margin: auto;
+  height: 40px;
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+
+  .pens,
+  .projects,
+  .posts {
+    position: relative;
+    /* width: calc(250px / 3); */
+    text-align: center;
+    color: white;
+
+    h6 {
+      text-transform: uppercase;
+      color: var(--main);
+    }
+
+    p {
+      font-size: 12px;
+    }
+  }
+
+}
