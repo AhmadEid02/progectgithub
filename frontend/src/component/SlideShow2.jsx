@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const SlideShow2 = () => {
-    const style = { width: "100%" };
+    const style = { width: "100%", height: "400px" };
     const [slideIndex, setSlideIndex] = useState(1);
 
     const plusSlides = (n) => {
-        showSlides(setSlideIndex(slideIndex+n))
+        const nextIndex = (slideIndex + 1) % 3;
+        setSlideIndex(nextIndex);
     };
 
     const currentSlide = (n) => {

@@ -8,6 +8,8 @@ import NavBar from './component/NavBar'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import { useState } from 'react'
+import Book from './pages/Book'
+import Payment from './pages/Payment'
 
 function App() {
   const [tog, setTog] = useState(true)
@@ -27,6 +29,8 @@ function App() {
               <Route path="/login" element={<Login tog={tog}/>} />
               <Route path="/signup" element={<Login tog={!tog}/>} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/book" element={<Book />} />
+              <Route path="/payment" element={<Payment />} />
             </Routes>
 
           </div>
