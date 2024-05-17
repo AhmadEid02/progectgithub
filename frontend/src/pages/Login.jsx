@@ -81,14 +81,14 @@ const Login = ({ tog }) => {
                     <div className={`form-container sign-up`} onSubmit={handleSignUp}>
                         <form>
                             <h1>Create Account</h1>
-                            <div className="social-icons">
+                            {/* <div className="social-icons">
                                 <a href="https://www.google.com/" target="_blank" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
                                 <a href="https://www.facebook.com/" target="_blank" className="icon"><i className="fa-brands fa-facebook-f"></i></a>
                                 <a href="https://github.com/" target="_blank" className="icon"><i className="fa-brands fa-github"></i></a>
                                 <a href="https://jo.linkedin.com/" target="_blank" className="icon"><i className="fa-brands fa-linkedin-in"></i></a>
-                            </div>
+                            </div> */}
 
-                            <span>or use your email for registeration</span>
+                            <span>use your email for registeration</span>
                             <input type="text" placeholder="Name" required value={name} onChange={e => setName(e.target.value)} />
                             <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} />
                             <input type="password" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
@@ -98,16 +98,16 @@ const Login = ({ tog }) => {
                             </button>
                         </form>
                     </div>
-                    <div className={"form-container sign-in"}>
+                    <div className={`form-container sign-in`}>
                         <form onSubmit={handleLogin}>
                             <h1>Log In</h1>
-                            <div className="social-icons">
+                            {/* <div className="social-icons">
                                 <a href="https://www.google.com/" target="_blank" className="icon"><i className="fa-brands fa-google-plus-g"></i></a>
                                 <a href="https://www.facebook.com/" target="_blank" className="icon"><i className="fa-brands fa-facebook-f"></i></a>
                                 <a href="https://github.com/" target="_blank" className="icon"><i className="fa-brands fa-github"></i></a>
                                 <a href="https://jo.linkedin.com/" target="_blank" className="icon"><i className="fa-brands fa-linkedin-in"></i></a>
-                            </div>
-                            <span> use your email password </span>
+                            </div> */}
+                            <span> use your email and password </span>
                             <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} />
                             <input type="password" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
                             {error?<span className='error'>{`${error}. `}{error=="wrong email address"?<span className='secCol' onClick={() => handletoggle("signup")}>Create account?</span>:null}</span>:null}

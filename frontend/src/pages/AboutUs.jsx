@@ -3,7 +3,7 @@ import {motion}from"framer-motion"
 const AboutUs = () => {
   return (
     <div>AboutUs
-      <div className='the'>
+      {/* <div className='the'>
          <motion.img 
          initial={{
           rotate:"0deg"
@@ -20,7 +20,7 @@ const AboutUs = () => {
           <h3>my name is ali </h3>
           <h3>my word is important,very may I add </h3>
          </div>
-      </div>
+      </div> */}
 
     </div>
   )

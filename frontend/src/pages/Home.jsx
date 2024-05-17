@@ -29,7 +29,7 @@ const Home = () => {
   }, [])
   return (
     <div>
-      {/* <SlidShow/> */}
+      
       <div className='hero'>
         <div className='welcome'>
           <h2>Welcome {user?user.name:""},in our</h2>
@@ -41,7 +41,14 @@ const Home = () => {
           <img src="./assets/two.png" alt="" />
         </div>
       </div>
+      <p>Click to filter:</p>
       <div className="filterbox">
+        <div className="sport" onClick={() => handleClick("All2")}>
+          <img src="./assets/Allsports2.png" alt="" />
+          {"All2" === select ? (
+            <motion.div className="circle" layoutId="circleId" />
+          ) : null}
+        </div>
         <div className="sport" onClick={() => handleClick("Basketball")}>
           <img src="./assets/basketball2.png" alt="" />
           {"Basketball" === select ? (
@@ -84,7 +91,8 @@ const Home = () => {
             sport===""?(
               fields.map((field) => <FieldCard key={field._id} name={field.name} description={field.description} imageUrl={field.imageUrl} id={field._id} />)
             ):(
-              fields.filter(e=>e.FieldType==sport).map((field) => <FieldCard key={field._id} name={field.name} description={field.description} imageUrl={field.imageUrl} id={field._id} />)
+              fields.filter(e=>e.FieldType==sport).length===0?(<div className='empty-field'><h2>no old booking</h2></div>):
+              (fields.filter(e=>e.FieldType==sport).map((field) => <FieldCard key={field._id} name={field.name} description={field.description} imageUrl={field.imageUrl} id={field._id} />))
             )
           }
         </div>

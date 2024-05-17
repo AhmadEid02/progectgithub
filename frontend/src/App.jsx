@@ -29,7 +29,7 @@ function App() {
               <Route path="/login" element={<Login tog={tog}/>} />
               <Route path="/signup" element={<Login tog={!tog}/>} />
               <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/book" element={<Book />} />
+              <Route path="/book/:id" element={<Book />} />
               <Route path="/payment" element={<Payment />} />
             </Routes>
 

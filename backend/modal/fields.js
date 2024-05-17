@@ -8,6 +8,7 @@ const fieldSchema = new mongoose.Schema({
     description: String,
     FieldType: String,
     capacity: Number,
+    pricePerHour: Number,
     features: [String],
     imageUrl: String,
     openingHours: {
@@ -19,9 +20,9 @@ const fieldSchema = new mongoose.Schema({
         friday: { start: String, end: String },
         saturday: { start: String, end: String },
     },
-    equipment:[
+    equipment: [
         {
-            equipmentType:String,equipmentPrice:Number
+            equipmentType: String, equipmentPrice: Number
         }
     ],
     referee: {
@@ -41,9 +42,12 @@ const fieldSchema = new mongoose.Schema({
             bookedDate: Date,
             bookedTime: String,
             bookedHours: String,
-        },
+            equipment: [{ equipmentType: String, equipmentPrice: Number }],
+            referee: { refereeName: String, refereeCost: Number },
+            // timestamps: true,
+        },,{timestamps: true}
     ],
-},{ timestamps: true });
+}, { timestamps: true });
 
 const SACField = mongoose.model('SACField1', fieldSchema);
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 const SlideShow3 = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
-    const style = { width: "100%", height: "400px" };
+    const style = { width: "800px", height: "400px" };
     const goToNextSlide = () => {
       const nextIndex = (currentIndex + 1) % slides.length;
       setCurrentIndex(nextIndex);

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const userSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true,
     },
@@ -24,7 +24,10 @@ const userSchema = new mongoose.Schema({
         bookedAt: {
             type: Date,
             default: Date.now,
-        }
-    }]
+        },
+        equipment: [{ equipmentType: String, equipmentPrice: Number }],
+        referee: { refereeName: String, refereeCost: Number },
+        
+    },{timestamps: true}]
 }, { timestamps: true })
 module.exports = mongoose.model('SACUser', userSchema)
