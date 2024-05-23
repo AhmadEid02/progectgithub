@@ -40,7 +40,7 @@ const NavBar = ({ tog }) => {
     return (
         <div className='navbar'>
             <div className='section1' onClick={() => goHome()}>
-                <div className='logo'><img src=".\assets\SAClogo.png" alt="" /></div>
+                <div className='logo'><img src="..\assets\SAClogo.png" alt="" /></div>
                 <div className='sac'><span className='secCol'>S</span>port <span className='secCol'>A</span>ctivities <span className='secCol'>C</span>enter</div>
             </div>
             <div className='section2'>
@@ -50,9 +50,9 @@ const NavBar = ({ tog }) => {
                         <motion.div className="underline" layoutId="underline" />
                     ) : null}
                 </div>
-                <div className={`iteam`} onClick={() => handleClick("fields")}>
-                    Services
-                    {"fields" === selected ? (
+                <div className={`iteam`} onClick={() => handleClick("sports")}>
+                    Sports
+                    {"sports" === selected ? (
                         <motion.div className="underline" layoutId="underline" />
                     ) : null}
                 </div>

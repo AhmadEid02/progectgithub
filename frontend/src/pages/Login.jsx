@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import './login.css'
 import { useNavigate } from "react-router-dom";
+import { Box, Checkbox } from '@mui/material';
 const Login = ({ tog }) => {
     const navigate = useNavigate();
     const [toggle, setToggle] = useState(tog)
@@ -92,6 +93,8 @@ const Login = ({ tog }) => {
                             <input type="text" placeholder="Name" required value={name} onChange={e => setName(e.target.value)} />
                             <input type="email" placeholder="Email" required value={email} onChange={e => setEmail(e.target.value)} />
                             <input type="password" placeholder="Password" required value={password} onChange={e => setPassword(e.target.value)} />
+                            
+                            
                             {error?<span className='error'>{error}</span>:null}
                             <button>
                             {btnload ? <div class="lds-ring"><div></div><div></div><div></div><div></div></div> : "Sign Up"}

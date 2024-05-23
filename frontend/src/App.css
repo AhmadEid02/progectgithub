@@ -59,6 +59,7 @@ body {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin: 0 auto;
 }
 
 .iteam {
@@ -158,6 +159,7 @@ body {
   height: 50px;
 
 }
+
 .all-sport {
   position: relative;
   width: 50px;
@@ -168,11 +170,13 @@ body {
   align-items: center;
   justify-content: center;
 }
-.all-sport p{
+
+.all-sport p {
   top: 50%;
   left: 50%;
 }
-.sport:hover{
+
+.sport:hover {
   scale: 1.08;
 }
 
@@ -219,7 +223,7 @@ body {
   justify-content: space-around;
 }
 
-.fields .field img {
+.field img {
   height: 166px;
   width: 250px;
   border-radius: 5px;
@@ -321,6 +325,7 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 100;
 }
+
 /* loading style */
 /* HTML: <div class="loader"></div> */
 .loader-container {
@@ -399,17 +404,19 @@ body {
 }
 
 .heroImage {
-  align-self: flex-end;
+  align-self: flex-end; 
 }
+
 
 .heroImage img {
   width: 400px;
 }
 
 .Services {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  /* background-color: var(--primaryColor); */
+
   margin: 0 auto;
 }
 
@@ -419,8 +426,7 @@ body {
   text-align: right;
   color: black;
   background-color: white;
-  width: 97.8vw;
-  margin: 0 -9vw;
+  width: 100%;
   align-items: flex-start;
   text-align: center;
 }
@@ -500,14 +506,17 @@ body {
   margin-bottom: 20px;
   /* margin: 20px auto; */
 }
+
 @media (max-width: 900px) {
-  .booking-list{
+  .booking-list {
     flex-direction: column;
   }
+
   .field-horizontal {
-    width: 100%; 
+    width: 100%;
   }
 }
+
 .empty-field {
   width: 1000px;
   height: 300px;
@@ -555,7 +564,8 @@ body {
 .field-horizontal button:hover {
   background-color: #15C9F0;
 }
-.Skeleton{
+
+.Skeleton {
   display: flex;
   flex-wrap: wrap;
 }
@@ -668,3 +678,78 @@ body {
   }
 
 }
+
+.about-section {
+  background-color: #fff;
+  padding: 2rem;
+  /* margin-top: 40px; */
+  /* margin-bottom: 2rem; */
+  /* border-radius: 10px; */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #666;
+  }
+}
+
+.contact-section {
+  background-color: var(--lightColor);
+  text-align: center;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  ul li {
+    margin-bottom: 1rem;
+    color: var(--main);
+  }
+
+}
+
+.social-media {
+  margin-top: 1rem;
+}
+
+.social-icon {
+  display: inline-block;
+  margin-right: 1rem;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+  }
+
+  img:hover {
+    transform: scale(1.2);
+  }
+
+}
+.top-stikey {
+  position: absolute;
+  top: 10px;
+  right: 10px; /* Adjust as needed */
+  color: black; /* Change color if needed */
+  font-size: 39px; /* Adjust font size if needed */
+  cursor: pointer; /* Add cursor pointer for interaction */
+  transition: 0.5s;
+  
+}
+.top-stikey span{
+  transition: 0.5s;
+  cursor: pointer; 
+}
+.top-stikey span:hover{
+rotate: 90deg;
+} 

@@ -3,8 +3,7 @@ const SlideShow3 = ({ slides }) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const style = { width: "800px", height: "400px" };
     const goToNextSlide = () => {
-      const nextIndex = (currentIndex + 1) % slides.length;
-      setCurrentIndex(nextIndex);
+      setCurrentIndex(prevIndex => (prevIndex + 1) % slides.length);
     };
   
     const goToPreviousSlide = () => {
@@ -13,13 +12,15 @@ const SlideShow3 = ({ slides }) => {
     };
   
     useEffect(() => {
-      const timer = setInterval(() => {
-        goToNextSlide();
-      }, 3000); // Change slide every 3 seconds
-  
-      return () => clearInterval(timer);
-    }, [currentIndex]);
-  
+      // Check if there are slides available
+      if (slides.length > 0) {
+        const timer = setInterval(() => {
+          goToNextSlide();
+        }, 3000); // Change slide every 3 seconds
+        
+        return () => clearInterval(timer);
+      }
+    }, [slides]);
     return (
       <>
         <div className="slideshow-container">
@@ -31,7 +32,7 @@ const SlideShow3 = ({ slides }) => {
               <div className="numbertext">
                 {index + 1}/{slides.length}
               </div>
-              <img src={slide} alt={`Slide ${index + 1}`} style={style} />
+              <img src={slide} alt={`Slide ${index + 1}`} className='image-slider' />
               <div className="text">Caption Text</div>
             </div>
           ))}

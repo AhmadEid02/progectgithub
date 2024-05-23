@@ -21,6 +21,7 @@ const userSchema = new mongoose.Schema({
         }, bookedDate: Date,
         bookedTime: String,
         bookedHours: [String],
+        bookedDuration: Number,
         bookedAt: {
             type: Date,
             default: Date.now,

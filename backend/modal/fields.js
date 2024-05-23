@@ -5,6 +5,8 @@ const fieldSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    imagesArray :["String"]
+    ,
     description: String,
     FieldType: String,
     capacity: Number,
@@ -41,7 +43,8 @@ const fieldSchema = new mongoose.Schema({
             },
             bookedDate: Date,
             bookedTime: String,
-            bookedHours: String,
+            bookedHours: [String],
+            bookedDuration: Number,
             equipment: [{ equipmentType: String, equipmentPrice: Number }],
             referee: { refereeName: String, refereeCost: Number },
             // timestamps: true,

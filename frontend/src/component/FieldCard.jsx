@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
-import { motion } from "framer-motion"
+
 import { useNavigate } from 'react-router-dom';
 
 const FieldCard = ({name,description,id,imageUrl}) => {
-    const [open, setOpen] = useState(false)
+    
     const navigate = useNavigate();
     const handleBook=()=>{
         navigate(`/book/${id}`);

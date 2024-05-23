@@ -43,6 +43,32 @@ const loginUser = async (req, res) => {
     }
 
 }
+const updateUsers = async (req, res) => {
+    try {
+        const users = await User.find({});
+
+        users.forEach(async (user) => {
+            let modified = false;
+
+            user.bookedFields.forEach((bookedField) => {
+                if (!bookedField.bookedDuration) {
+                    bookedField.bookedDuration = 60;
+                    modified = true;
+                }
+            });
+
+            if (modified) {
+                await user.save();
+            }
+        });
+
+        console.log('All user bookings updated successfully.');
+        res.status(200).send('All user bookings updated successfully.');
+    } catch (error) {
+        console.error('Error updating user bookings:', error);
+        res.status(500).send('Error updating user bookings:', error);
+    }
+};
 module.exports = {
-    signupUser,loginUser
+    signupUser,loginUser,updateUsers
 }

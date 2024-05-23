@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import FieldCard from '../component/FieldCard'
 import { motion } from "framer-motion"
 import axios from "axios"
+import { useLocation } from 'react-router-dom'
 const Home = () => {
   const [select, setSelect] = useState("")
   const [fields, setFields] = useState([])
   const [sport, setSport] = useState("")
   const [loading, setLoading] = useState(true)
+  const fieldsSectionRef = useRef(null);
+  const location = useLocation();
   const user = JSON.parse(localStorage.getItem('user'))
   const fetchData = async () => {
     const apiUrl = "http://localhost:4000/api/fields";
@@ -23,29 +26,43 @@ const Home = () => {
     console.log(div)
 
   }
+  // useEffect(() => {
+  //   fetchData();
+
+  // }, [])
   useEffect(() => {
     fetchData();
 
-  }, [])
+    if (location.state && location.state.sport) {
+      setSelect(location.state.sport);
+      setSport(location.state.sport);
+      fieldsSectionRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [location.state]);
+  const handleBookNow=()=>{
+    fieldsSectionRef.current?.scrollIntoView({ behavior: 'smooth' }); 
+  }
   return (
     <div>
+      <div className='container'>
+          <div className='mainContant'>
       
       <div className='hero'>
         <div className='welcome'>
           <h2>Welcome {user?user.name:""},in our</h2>
           <h2>Sport <span className='secCol'>Activites</span> Complex</h2>
           <h2>In University of jordan</h2>
-          <button>Book Now!</button>
+          <button onClick={handleBookNow}>Book Now!</button>
         </div>
         <div className='heroImage'>
           <img src="./assets/two.png" alt="" />
         </div>
       </div>
-      <p>Click to filter:</p>
-      <div className="filterbox">
-        <div className="sport" onClick={() => handleClick("All2")}>
-          <img src="./assets/Allsports2.png" alt="" />
-          {"All2" === select ? (
+      {/* <p>Click to filter:</p> */}
+      <div className="filterbox" ref={fieldsSectionRef}>
+        <div className="sport" onClick={() => handleClick("")}>
+          <img src="./assets/Allsports.png" alt="" />
+          {"" === select ? (
             <motion.div className="circle" layoutId="circleId" />
           ) : null}
         </div>
@@ -99,6 +116,8 @@ const Home = () => {
       )}
 
 
+    </div>
+    </div>
     </div>
   )
 }
