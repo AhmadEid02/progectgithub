@@ -15,7 +15,7 @@
     flex-direction: column;
     height: 80vh;
 }
-.container002{
+.container{
     
     background-color: #fff;
     border-radius: 30px;
@@ -26,26 +26,25 @@
     max-width: 100%;
     min-height: 480px;
 }
-
-.container002 p{
+.container p{
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
     margin: 20px 0;
 }
 
-.container002 span{
+.container span{
     font-size: 12px;
 }
 
-.container002 a{
+.container a{
     color: #333;
     font-size: 13px;
     text-decoration: none;
     margin: 15px 0 10px;
 }
 
-.container002 button{
+.container button{
     background-color: #15C9F0;
     color: #fff;
     font-size: 12px;
@@ -59,12 +58,12 @@
     cursor: pointer;
 }
 
-/* .container002 button.hidden{
+/* .container button.hidden{
     background-color: transparent;
     border-color: #fff;
 } */
 
-.container002 form{
+.container form{
     background-color: #fff;
     display: flex;
     align-items: center;
@@ -74,7 +73,7 @@
     height: 100%;
 }
 
-.container002 input{
+.container input{
     background-color: #eee;
     border: none;
     margin: 8px 0;
@@ -98,7 +97,7 @@
     z-index: 2;
 }
 
-.container002.active .sign-in{
+.container.active3 .sign-in{
     transform: translateX(100%);
 }
 
@@ -107,27 +106,23 @@
     width: 50%;
     opacity: 0;
     z-index: 1;
-    
 }
 
-.container002.active .sign-up{
+.container.active3 .sign-up{
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
     animation: move 0.6s;
-    
 }
 
 @keyframes move{
-    0%, 49.99%{ 
+    0%, 49.99%{
         opacity: 0;
         z-index: 1;
-        
     }
     50%, 100%{
         opacity: 1;
         z-index: 5;
-        
     }
 }
 
@@ -158,15 +153,15 @@
     z-index: 1000;
 }
 
-.container002.active .toggle-container{
+.container.active3 .toggle-container{
     transform: translateX(-100%);
     border-radius: 0 150px 100px 0;
 }
 
 .toggle{
-    background-color: var(--secondary);
+    background-color: #15C9F0;
     height: 100%;
-    background: linear-gradient(to right, #15C9F0, #17182D);
+    background: linear-gradient(to right, #15C9F0, #17182d);
     color: #fff;
     position: relative;
     left: -100%;
@@ -176,7 +171,7 @@
     transition: all 0.6s ease-in-out;
 }
 
-.container002.active .toggle{
+.container.active3 .toggle{
     transform: translateX(50%);
 }
 
@@ -199,7 +194,7 @@
     transform: translateX(-200%);
 }
 
-.container002.active .toggle-left{
+.container.active3 .toggle-left{
     transform: translateX(0);
 }
 
@@ -208,51 +203,8 @@
     transform: translateX(0);
 }
 
-.container002.active .toggle-right{
+.container.active3 .toggle-right{
     transform: translateX(200%);
-}
-
-
-/* button loder */
-
-.lds-ring,
-.lds-ring div {
-  box-sizing: border-box;
-}
-.lds-ring {
-  display: inline-block;
-  position: relative;
-  width: 30px;
-  height: 30px;
-}
-.lds-ring div {
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  margin: 0px;
-  border: 5px solid currentColor;
-  border-radius: 50%;
-  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: currentColor transparent transparent transparent;
-}
-.lds-ring div:nth-child(1) {
-  animation-delay: -0.45s;
-}
-.lds-ring div:nth-child(2) {
-  animation-delay: -0.3s;
-}
-.lds-ring div:nth-child(3) {
-  animation-delay: -0.15s;
-}
-@keyframes lds-ring {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 .error{
    color: red;

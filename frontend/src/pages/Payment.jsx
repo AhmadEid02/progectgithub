@@ -66,7 +66,7 @@ const Payment = () => {
   }
   return (
     <>
-      <div className='container'>
+      <div className='home-container'>
         <div className='mainContant'>
           {error && <Alert className='sticky' variant="filled" severity="error">{error}.</Alert>}
           <div className="step-container">
@@ -92,7 +92,7 @@ const Payment = () => {
               <div className='photo-title'>
 
                 <div className="image-container">
-                  <img className="image" src={`./assets/${fieldData.imageUrl}`} alt="Main Image" />
+                  <img className="image" src={`./assets/fields/${fieldData.imageUrl}`} alt="Main Image" />
                 </div>
                 <div className='title'>
                   <h3>{fieldData.name}</h3>

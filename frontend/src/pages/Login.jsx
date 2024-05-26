@@ -78,7 +78,7 @@ const Login = ({ tog }) => {
         <>
 
             <div className="contain">
-                <div className={toggle ? 'container002' : "container002 active"}>
+                <div className={toggle ? 'container' : "container active3"}>
                     <div className={`form-container sign-up`} onSubmit={handleSignUp}>
                         <form>
                             <h1>Create Account</h1>

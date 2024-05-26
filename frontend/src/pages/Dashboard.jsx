@@ -46,7 +46,7 @@ const Dashboard = () => {
   });
 
   return (
-    <div className='container'>
+    <div className='home-container'>
       <div className='mainContant'>
         <div className='dash'>
           <div className="card">

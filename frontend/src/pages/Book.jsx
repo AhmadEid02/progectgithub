@@ -207,7 +207,7 @@ const Book = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='home-container'>
             <div className='mainContant'>
                 <div>
                     {error && <Alert className='sticky' variant="filled" severity="error">{error}.</Alert>}

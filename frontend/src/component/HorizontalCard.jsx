@@ -3,7 +3,7 @@ import React from 'react'
 const HorizontalCard = ({ id, imageUrl, name, date, time, bookedDuration, upcoming }) => {
   return (
     <div className="field-horizontal" id={id}>
-      <img src={`./assets/${imageUrl}`} alt="" />
+      <img src={`./assets/fields/${imageUrl}`} alt="" />
       <div>
         <h3>{name}</h3>
         {/* <p>description</p> */}

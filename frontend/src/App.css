@@ -20,7 +20,7 @@ body {
   font-family: 'Be Vietnam Pro', sans-serif;
 }
 
-.container {
+.home-container {
   display: flex;
   flex-direction: column;
   width: 80%;

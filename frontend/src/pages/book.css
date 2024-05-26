@@ -60,9 +60,11 @@
 .container003.payment{
  flex-direction: row;
   justify-content: space-around;
+  width: 100%;
 }
 .deatails,.price{
   flex-direction: column;
+  width: 100%;
 }
 
 .deatails h1{
