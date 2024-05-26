@@ -14,7 +14,7 @@ const AboutUs = () => {
             <p>Welcome to the Sports Activity Complex at the University of Jordan, a dynamic hub designed to cater to a diverse range of sports and recreational activities for both students and faculty. Here's an insightful glimpse into what our complex has to offer:</p>
 
           </div>
-          <img src="./assets/about.png" alt="" srcset="" />
+          <img src="./assets/about.png" alt="" srcSet="" />
         </div>
         <ul>
           <li><b>Sports Facilities:</b> The complex likely includes a range of sports facilities such as indoor and outdoor courts for basketball, volleyball, and tennis. It may also have a football (soccer) field and a track for athletics.</li>

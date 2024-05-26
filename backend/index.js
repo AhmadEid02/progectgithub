@@ -10,10 +10,24 @@ app.use(express.json());
 const fieldsRoutes = require('./routes/fieldsRoutes');
 const userRoutes = require('./routes/userRoutes');
 const bookRoutes = require('./routes/BookRoutes');
+const adminBookRoutes = require('./routes/AdminBookingsRoutes');
+const adminFieldRoutes = require('./routes/AdminRoutes');
+const adminUploadRoutes = require('./routes/AdminUploadRoutes');
+const adminNewsRoutes = require('./routes/adminNewsRoutes');
+const userNewsRoutes = require('./routes/userNewsRoutes');
+const adminMatchesRoutes = require('./routes/adminMatchesRoutes');
+const userMatchesRoutes = require('./routes/userMatchesRoutes');
 
 app.use('/user', userRoutes);
 app.use('/api/fields', fieldsRoutes);
 app.use('/book', bookRoutes);
+app.use('/admin', adminBookRoutes);
+app.use('/api/admin', adminFieldRoutes);
+app.use('/api/upload',adminUploadRoutes );
+app.use('/admin/news',adminNewsRoutes );
+app.use('/news',userNewsRoutes );
+app.use('/admin/matches',adminMatchesRoutes );
+app.use('/matches',userMatchesRoutes );
 
 console.log("hello word")
 

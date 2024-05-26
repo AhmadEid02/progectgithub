@@ -78,9 +78,9 @@ const Home = () => {
             <motion.div className="circle" layoutId="circleId" />
           ) : null}
         </div>
-        <div className="sport" onClick={() => handleClick("Reesha")}>
+        <div className="sport" onClick={() => handleClick("Squash")}>
           <img src="./assets/reesha.png" alt="" />
-          {"Reesha" === select ? (
+          {"Squash" === select ? (
             <motion.div className="circle" layoutId="circleId" />
           ) : null}
         </div>

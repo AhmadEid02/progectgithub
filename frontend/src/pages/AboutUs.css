@@ -11,6 +11,8 @@
 .carousel2 {
   cursor: grab;
   overflow: hidden;
+  width: 80%;
+  margin: 0 auto;
 }
 
 .inner-carousel2 {

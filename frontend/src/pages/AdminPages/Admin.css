@@ -1,0 +1,432 @@
+:root {
+    --main: #17182D;
+    --secondary: #15C9F0;
+    --primaryColor: rgb(235, 37, 54);
+    --secondaryColor: #f7bcf7;
+    --lightColor: #ffffff;
+    --bgColor-1: #171a1c;
+    --bgColor-2: #22282a;
+    --pading: 8%;
+}
+
+.admin-container {
+    display: flex;
+
+}
+.side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 100vh;
+    background-color: var(--secondary);
+}
+
+.side-bar-row,
+.side-bar-head,
+.side-bar-footer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.side-bar-head {
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.side-bar-head h5 {
+    margin: 10px;
+}
+
+.side-bar-row {
+    align-items: center;
+    margin: 5px 15px;
+    transition: background-color 0.3s; /* Add transition for smoother color change */
+}
+
+.side-bar-row:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+}
+
+.side-bar-row.active {
+    background-color: rgba(23, 24, 45, 0.3); /* Change background color on click */
+   
+}
+
+.side-bar-row img,
+.side-bar-row span {
+    width: 24px;
+    height: 24px;
+    margin: 4px 8px;
+}
+
+.side-bar-footer {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid black;
+}
+
+.side-bar-footer img {
+    width: 24px;
+    height: 24px;
+    margin: 5px 15px;
+    border-radius: 50%;
+}.admin-content {
+    width: 100%;
+}
+
+.admin-content {
+    margin-left: 200px;
+    /* Adjust to match the width of the sidebar */
+    width: calc(100% - 200px);
+    padding: 20px;
+    overflow-y: auto;
+    /* Allow content to scroll if it exceeds viewport height */
+}
+
+.book-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    justify-content: center;
+
+    h3 {
+        text-align: center;
+        color: var(--secondary);
+    }
+}
+
+.books {
+    display: flex;
+    flex-direction: column;
+}
+
+.books-row {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+
+
+.books-row-1 span {
+    cursor: pointer;
+    position: relative;
+    border-radius: 50%;
+}
+
+.books-row-1 span::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: rgba(21, 201, 240, 0.5);
+    /* Adjust color and transparency */
+    border-radius: 50%;
+    transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.books-row-1 span:hover::before {
+    width: 200%;
+    height: 200%;
+    background-color: rgba(21, 201, 240, 0.2);
+}
+
+
+.material-symbols-outlined.active2 {
+    rotate: 180deg;
+}
+
+.books-row-0 {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    /* Lighter border for subtlety */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow for depth */
+}
+
+.books-row-1 {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    /* Separator for sections */
+}
+
+.books-row-2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+    /* Consistent padding */
+    margin: 4px 0;
+}
+
+.books-row-3 {
+    display: flex;
+    align-items: center;
+    margin: 4px 8px;
+
+}
+
+.books-row-2 p,
+.books-row-3 p {
+    margin: 0;
+    color: #333;
+    /* Darker text for readability */
+}
+
+.field-container {
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+    justify-content: center;
+
+    h3 {
+        text-align: center;
+        color: var(--secondary);
+    }
+}
+
+.field-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px 25px;
+}
+
+.add-icon {
+    position: relative;
+    padding: 8px 4px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    /* Ensure the expanding circle does not go outside the container */
+    transition: 0.5s;
+}
+
+.add-icon span {
+    padding: 0px 4px;
+}
+
+.add-icon:hover {
+    rotate: 90deg;
+}
+
+.add-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: rgba(21, 201, 240, 0.5);
+    border-radius: 50%;
+    transition: width 0.3s, height 0.3s, background-color 0.5s;
+}
+
+.add-icon:hover::before {
+    width: 200%;
+    height: 200%;
+    background-color: rgba(180, 180, 180, 0.3);
+}
+
+.loading {
+    display: flex;
+    width: 100%;
+    height: 400px;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-field-deatils-container {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.admin-image-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-image-container img {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+}
+
+.admin-field-deatils-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.admin-field-deatils-spans {
+    display: flex;
+    align-items: center;
+}
+
+.admin-field-deatils-spans span {
+    cursor: pointer;
+    padding: 4px;
+    background-color: #15C9F0;
+    margin: 0px 4px;
+    border-radius: 4px;
+}
+
+.admin-field-deatils-spans span.red {
+    background-color: red;
+}
+
+.admin-field-input {
+    display: flex;
+    align-items: last baseline;
+    gap: 20px;
+}
+
+.admin-image-container-edit {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-image-container-edit .image-wrapper {
+    position: relative;
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+}
+
+.admin-image-container-edit img {
+    width: 100%;
+    height: 100%;
+}
+
+.admin-image-container-edit .close-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.admin-image-container-edit .empty-image {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    background: rgba(200, 200, 200, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.admin-features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+}
+
+.admin-features .add-features {
+    padding: 4px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.admin-news-card {
+    display: flex;
+    width: 80%;
+    background: rgba(21, 201, 240, 0.5);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 10px auto;
+    height: 100%;
+    justify-content: space-between;
+  }
+  
+  .admin-news {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .admin-news-card img {
+    width: 200px;
+    height: 150px;
+    border-radius: 8px;
+  }
+  
+  .admin-news-card-content {
+    display: flex;
+    flex-direction: column;
+    width: calc(100% - 220px); /* Adjusted width to accommodate the image */
+    margin-left: 20px; /* Added margin to separate content from image */
+  }
+  .admin-news-card-content p,.admin-news-card-content h4 {
+    margin: 3px;
+  }
+  
+  .chip-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .chip {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .admin-delete{
+    padding: 3px;
+    background-color: red;
+    align-self: flex-end;
+    border-radius: 4px;
+    cursor: pointer;
+  }

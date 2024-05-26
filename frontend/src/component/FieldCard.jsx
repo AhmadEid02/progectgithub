@@ -12,7 +12,7 @@ const FieldCard = ({name,description,id,imageUrl}) => {
     return (
         <>
         <div className="field" id={id}>
-                            <img src={`./assets/${imageUrl}`} alt="" />
+                            <img src={`./assets/fields/${imageUrl}`} alt="" />
                             <h3>{name}</h3>
                             <p>{description}</p>
                             <button onClick={handleBook}>Book now!</button>

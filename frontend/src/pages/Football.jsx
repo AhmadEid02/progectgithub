@@ -4,6 +4,8 @@ import './AboutUs.css'
 import NewsSlider from '../component/NewsSlider';
 import SlideShow3 from '../component/SlideShow3';
 import ProgressBar from '../component/ProgressBar';
+import { useEffect } from 'react';
+import axios from "axios"
 
 const matchData = [
     {
@@ -21,9 +23,12 @@ const matchData = [
         logo: '../assets/uniLogo.png'
     }
 ];
-const teams=["../assets/team/team1.jpg","../assets/team/team2.jpg","../assets/team/team3.jpg","../assets/team/team4.jpeg","../assets/team/team5.jpeg"]
+
+const teams = ["../assets/team/team1.jpg", "../assets/team/team2.jpg", "../assets/team/team3.jpg", "../assets/team/team4.jpeg", "../assets/team/team5.jpeg"]
 
 const Football = () => {
+    const [matches, setMatches] = useState([])
+    const [news, setNews] = useState([])
     const [active, setActive] = useState(new Array(matchData.length).fill(false));
     const navigate = useNavigate();
     const navigateTo = () => {
@@ -36,10 +41,34 @@ const Football = () => {
             return newActive;
         });
     };
+    const fetchMatchesData=async()=>{
+        try {
+            const apiUrl = `http://localhost:4000/matches/Football`
+            const response = await axios.get(`${apiUrl}`);
+            setMatches(response.data.matches)
+        } catch (error) {
+
+        }
+    }
+    const fetchNewsData=async()=>{
+        try {
+            const apiUrl = `http://localhost:4000/news/Football`
+            const response = await axios.get(`${apiUrl}`);
+            setNews(response.data.news)
+
+        } catch (error) {
+
+        }
+    }
+    useEffect(() => {
+        fetchMatchesData()
+        fetchNewsData()
+    }, [])
+
 
     return (
         <div>
-            <ProgressBar/>
+            <ProgressBar />
             <div className='hero'>
                 <div className='welcome'>
                     <h2>Welcome to <span className='secCol'>Football</span></h2>
@@ -67,22 +96,22 @@ const Football = () => {
             </div>
             <div className='matches'>
                 <ul>
-                    {matchData.map((match, index) => (
-                        <li key={index}>
+                    {matches.map((match, index) => (
+                        <li key={match._id}>
                             <div className='team-logo'>
-                                <img src={match.logo} alt="" />
+                                <img src={`../../../assets/fields/${match.team1Logo}`} alt="" />
                                 <p>{match.team1}</p>
                             </div>
                             <p>vs</p>
                             <div className='team-logo'>
-                                <img src={match.logo} alt="" />
+                                <img src={`../../../assets/fields/${match.team2Logo}`} alt="" />
                                 <p>{match.team2}</p>
                             </div>
                             <div className='time2'>
                                 <span className="material-symbols-outlined">
                                     calendar_today
                                 </span>
-                                <p>{match.date}</p>
+                                <p>{match.date?.split("T")[0]}</p>
                             </div>
                             <div className='time2'>
                                 <span className="material-symbols-outlined">
@@ -90,16 +119,12 @@ const Football = () => {
                                 </span>
                                 <p>{match.time}</p>
                             </div>
-                            <div className={active[index] ? "bell active" : "bell"} onClick={() => toggleActive(index)}>
-                                {!active[index] ? (
+                            <div className="bell">
+                                <a href={match.link} target="_blank">
                                     <span className="material-symbols-outlined">
-                                        notifications
+                                        <img src="../assets/youtube.svg" alt="" />
                                     </span>
-                                ) : (
-                                    <span className="material-symbols-outlined">
-                                        notifications_active
-                                    </span>
-                                )}
+                                </a>
                             </div>
                         </li>
                     ))}
@@ -135,12 +160,12 @@ const Football = () => {
                 <h2>News</h2>
                 <p>Stay updated with the latest news and events from our football team and the sports community.</p>
             </div>
-            <NewsSlider/>
+            <NewsSlider newsItems={news}/>
             <div className='gallery-title'>
                 <h2>Our Team</h2>
                 <p>Meet our dedicated team of players and coaches who strive for excellence on and off the field.</p>
             </div>
-            <SlideShow3 slides={teams}/>
+            <SlideShow3 slides={teams} />
         </div>
     )
 }

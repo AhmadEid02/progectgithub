@@ -112,8 +112,8 @@ const Payment = () => {
                 <span>{fieldData.bookedDuration} mins book</span>
               </div>
               {
-                fieldData.equipment.map(eq => (
-                  <div className="course">
+                fieldData.equipment.map((eq,index) => (
+                  <div className="course" key={index}>
                     <div className="course-row" id={eq._id}>
                       <span className="">
                         {eq.equipmentType}
@@ -149,9 +149,6 @@ const Payment = () => {
                 <div className='credit'>
                   <p>card name holder</p>
                   <div className='card-num'>
-                    {/* <span class="material-symbols-outlined">
-                  credit_card
-                </span> */}
                     <input type="text" placeholder='First name' />
 
                   </div>

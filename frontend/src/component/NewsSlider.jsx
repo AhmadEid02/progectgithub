@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import '../pages/AboutUs.css'; // Make sure to import your CSS file
 
-const NewsSlider = () => {
+const NewsSlider = ({newsItems}) => {
     const [width, setWidth] = useState(0);
     const carousel2 = useRef();
 
@@ -16,13 +16,13 @@ const NewsSlider = () => {
         window.addEventListener('resize', updateWidth);
         return () => window.removeEventListener('resize', updateWidth);
     }, []);
-    const newsItems = [
-        { id: 1, title: "News 1", description: "Description 1", imgSrc: `../assets/Football5field.jpg` },
-        { id: 2, title: "News 2", description: "Description 2", imgSrc: `../assets/Football5field.jpg` },
-        { id: 3, title: "News 3", description: "Description 3", imgSrc: `../assets/Football5field.jpg` },
-        { id: 4, title: "News 4", description: "Description 4", imgSrc: `../assets/Football5field.jpg` },
-        { id: 5, title: "News 5", description: "Description 5", imgSrc: `../assets/Football5field.jpg` },
-    ];
+    // const newsItems = [
+    //     { id: 1, title: "News 1", description: "Description 1", imgSrc: `../assets/Football5field.jpg` },
+    //     { id: 2, title: "News 2", description: "Description 2", imgSrc: `../assets/Football5field.jpg` },
+    //     { id: 3, title: "News 3", description: "Description 3", imgSrc: `../assets/Football5field.jpg` },
+    //     { id: 4, title: "News 4", description: "Description 4", imgSrc: `../assets/Football5field.jpg` },
+    //     { id: 5, title: "News 5", description: "Description 5", imgSrc: `../assets/Football5field.jpg` },
+    // ];
 
     return (
         <motion.div ref={carousel2} className='carousel2'>
@@ -35,10 +35,10 @@ const NewsSlider = () => {
                 {
                     newsItems.map(news => {return(
                         <div className="news">
-                            <img src={news.imgSrc} alt="" />
+                            <img src={`../../assets/fields/${news.imageUrl}`} alt="" />
                             <h3>{news.title}</h3>
-                            <p>{news.description}</p>
-                            <button>Book now!</button>
+                            <p>{news.newsDescription}</p>
+                            {/* <button>Book now!</button> */}
                         </div>)
                     })
                 }

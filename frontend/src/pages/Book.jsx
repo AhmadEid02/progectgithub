@@ -302,7 +302,7 @@ const Book = () => {
                         <List sx={style}>
                             <ListItem className="checkbox" sx={{ display: 'flex', justifyContent: "space-between" }}>
                                 <Box sx={{ display: "flex", alignItems: "center", my: 1, mx: 1, width: "200px" }}>
-                                    <span class="material-symbols-outlined">
+                                    <span className="material-symbols-outlined">
                                         payments
                                     </span>
                                     <p>Price</p>
