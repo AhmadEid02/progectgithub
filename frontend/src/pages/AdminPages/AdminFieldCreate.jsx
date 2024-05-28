@@ -189,13 +189,14 @@ const AdminFieldCreate = () => {
                             </div>
                         }
                         <div className='empty-image'>
-                            {/* <input type="file" onChange={handleImageUpload} /> */}
-                            <input type="file" onChange={handleMainImageUpload} />
-                            <div className='add-icon'>
-                                <span className="material-symbols-outlined">
-                                    add
-                                </span>
-                            </div>
+                            <input type="file" id="main-file-upload" onChange={handleMainImageUpload} />
+                            <label htmlFor="main-file-upload" className="custom-file-upload">
+                                <div className='add-icon'>
+                                    <span className="material-symbols-outlined">add</span>
+                                </div>
+                                <div className='file-button'>Choose Image</div>
+                            </label>
+                            {mainImage && <div className='file-name'>{mainImage}</div>}
                         </div>
                     </div>
                     
@@ -236,12 +237,13 @@ const AdminFieldCreate = () => {
                         </div>
                     ))}
                     <div className='empty-image'>
-                        <input type="file" onChange={handleImageUpload} />
-                        <div className='add-icon'>
-                            <span className="material-symbols-outlined">
-                                add
-                            </span>
-                        </div>
+                        <input type="file" id="file-upload" onChange={handleImageUpload} />
+                        <label htmlFor="file-upload" className="custom-file-upload">
+                            <div className='add-icon'>
+                                <span className="material-symbols-outlined">add</span>
+                            </div>
+                            <div className='file-button'>Choose Image</div>
+                        </label>
                     </div>
                 </div>
                 <h3>Features:</h3>

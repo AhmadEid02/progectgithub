@@ -753,3 +753,46 @@ body {
 .top-stikey span:hover{
 rotate: 90deg;
 } 
+.log-in-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--main);
+}
+.log-in-container h3{
+  margin: -10px 0px;
+  z-index: 100;
+  color: #f0f0f0;
+}
+
+.admin-log-in {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 30%;
+  background-color: var(--secondary);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.admin-field-input {
+  margin-bottom: 1.5rem;
+}
+
+.admin-field-input h3 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+@media only screen and (max-width: 600px) {
+  .admin-log-in {
+    width: 100%;
+    margin: 0px 40px;
+  }
+  .log-in-container{
+    margin: 0px 40px;
+  }
+}

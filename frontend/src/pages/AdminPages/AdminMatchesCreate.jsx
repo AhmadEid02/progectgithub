@@ -121,12 +121,14 @@ const AdminMatchesCreate = () => {
                             </div>
                         }
                         <div className='empty-image'>
-                            <input type="file" onChange={handleTeam1LogoUpload} />
-                            <div className='add-icon'>
-                                <span className="material-symbols-outlined">
-                                    add
-                                </span>
-                            </div>
+                            <input type="file" id="logo-1-file-upload" onChange={handleTeam1LogoUpload} />
+                            <label htmlFor="logo-1-file-upload" className="custom-file-upload">
+                                <div className='add-icon'>
+                                    <span className="material-symbols-outlined">add</span>
+                                </div>
+                                <div className='file-button'>Choose Image</div>
+                            </label>
+                            {team1Logo && <div className='file-name'>{team1Logo}</div>}
                         </div>
                     </div>
                 </div>
@@ -142,12 +144,14 @@ const AdminMatchesCreate = () => {
                             </div>
                         }
                         <div className='empty-image'>
-                            <input type="file" onChange={handleTeam2LogoUpload} />
-                            <div className='add-icon'>
-                                <span className="material-symbols-outlined">
-                                    add
-                                </span>
-                            </div>
+                            <input type="file" id="logo-2-file-upload" onChange={handleTeam2LogoUpload} />
+                            <label htmlFor="logo-2-file-upload" className="custom-file-upload">
+                                <div className='add-icon'>
+                                    <span className="material-symbols-outlined">add</span>
+                                </div>
+                                <div className='file-button'>Choose Image</div>
+                            </label>
+                            {team2Logo && <div className='file-name'>{team2Logo}</div>}
                         </div>
                     </div>
                 </div>
@@ -172,7 +176,7 @@ const AdminMatchesCreate = () => {
                     />
                 </div>
                 <LocalizationProvider dateAdapter={AdapterDayjs} >
-                    <DateCalendar onChange={(newValue) => setDate(newValue)} disablePast={true} maxDate={dayjs().add(2, 'week')} />
+                    <DateCalendar onChange={(newValue) => setDate(newValue)} disablePast={true}  />
                 </LocalizationProvider>
                 <Button variant="contained" onClick={handleSubmit} sx={{ display: "flex", alignItems: "center", alignSelf: "flex-end" }}>
                     <span className="material-symbols-outlined">

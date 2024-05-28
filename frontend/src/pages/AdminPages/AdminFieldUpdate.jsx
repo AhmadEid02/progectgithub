@@ -1,37 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { MenuItem, Select, TextField, Alert, List, ListItem, ListItemText, Divider, Box, Button } from '@mui/material';
+import { MenuItem, Select, TextField, Alert, List, ListItem, Divider, Box, Button } from '@mui/material';
+
 const style = {
     p: 0,
     my: 2,
     mx: "auto",
     width: '100%',
-    // maxWidth: 360,
     borderRadius: 2,
     border: '1px solid',
     borderColor: 'divider',
     backgroundColor: 'background.paper',
-    // display: 'flex',
-    // flexWrap: 'wrap' ,
 };
-const weeksDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+
+const weeksDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+
 const AdminFieldUpdate = () => {
     const [error, setError] = useState("");
     const [field, setField] = useState({});
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [fieldType, setFieldType] = useState("");
-    const [pricePerHour, setPricePerHour] = useState(0)
+    const [pricePerHour, setPricePerHour] = useState(0);
     const [openingHours, setOpeningHours] = useState({});
     const [features, setFeatures] = useState([]);
     const [equipment, setEquipment] = useState([]);
     const [imagesArray, setImagesArray] = useState([]);
     const [referee, setReferee] = useState({});
-    const [imageUrl, setImageUrl] = useState(null); // New state for main image file
-    
+    const [imageUrl, setImageUrl] = useState(null);
+
     const { id } = useParams();
     const navigate = useNavigate();
+
     const fetchData = async () => {
         const apiUrl = "http://localhost:4000";
         try {
@@ -41,13 +42,13 @@ const AdminFieldUpdate = () => {
             setName(fieldData.name);
             setDescription(fieldData.description);
             setFieldType(fieldData.FieldType);
-            setPricePerHour(fieldData.pricePerHour)
+            setPricePerHour(fieldData.pricePerHour);
             setOpeningHours(fieldData.openingHours);
             setFeatures(fieldData.features || []);
             setEquipment(fieldData.equipment || []);
             setImagesArray(fieldData.imagesArray || []);
-            setReferee(fieldData.referee||{})
-            setImageUrl(fieldData.imageUrl||"")
+            setReferee(fieldData.referee || {});
+            setImageUrl(fieldData.imageUrl || "");
         } catch (error) {
             console.error("Error fetching data:", error);
             setError("Error fetching data");
@@ -57,6 +58,7 @@ const AdminFieldUpdate = () => {
     useEffect(() => {
         fetchData();
     }, [id]);
+
     const handleSubmit = async () => {
         const apiUrl = "http://localhost:4000";
         const updateData = {
@@ -72,13 +74,14 @@ const AdminFieldUpdate = () => {
             referee,
         };
         try {
-            const response = await axios.put(`${apiUrl}/api/admin/updatefield/${id}`, updateData);
-            navigate(-1)
+            await axios.put(`${apiUrl}/api/admin/updatefield/${id}`, updateData);
+            navigate(-1);
         } catch (error) {
-            console.error("Error fetching data:", error);
-            setError("Error fetching data");
+            console.error("Error updating field:", error);
+            setError("Error updating field");
         }
-    }
+    };
+
     const handleOpeningHourChange = (day, timeType, value) => {
         setOpeningHours(prevState => ({
             ...prevState,
@@ -88,6 +91,7 @@ const AdminFieldUpdate = () => {
             }
         }));
     };
+
     const handleFeatureChange = (index, value) => {
         setFeatures(prevState => {
             const newFeatures = [...prevState];
@@ -99,9 +103,11 @@ const AdminFieldUpdate = () => {
     const handleFeatureDelete = (index) => {
         setFeatures(prevState => prevState.filter((_, i) => i !== index));
     };
+
     const handleAddFeature = () => {
         setFeatures(prevState => [...prevState, ""]);
     };
+
     const handleEquipmentChange = (index, key, value) => {
         setEquipment(prevState => {
             const newEquipment = [...prevState];
@@ -125,7 +131,6 @@ const AdminFieldUpdate = () => {
 
         try {
             const response = await axios.post('http://localhost:4000/api/upload/', formData);
-
             const newImage = response.data.filename;
             setImagesArray(prevState => [...prevState, newImage]);
         } catch (error) {
@@ -136,12 +141,15 @@ const AdminFieldUpdate = () => {
     const handleImageDelete = (index) => {
         setImagesArray(prevState => prevState.filter((_, i) => i !== index));
     };
-    const handleRefereeName=(name)=>{
-        setReferee({...referee,"refereeName":name})
-    }
-    const handleRefereeCost=(cost)=>{
-        setReferee({...referee,"refereeCost":cost})
-    }
+
+    const handleRefereeName = (name) => {
+        setReferee({ ...referee, "refereeName": name });
+    };
+
+    const handleRefereeCost = (cost) => {
+        setReferee({ ...referee, "refereeCost": cost });
+    };
+
     const handleMainImageUpload = async (event) => {
         const file = event.target.files[0];
         const formData = new FormData();
@@ -152,12 +160,14 @@ const AdminFieldUpdate = () => {
             const newImage = response.data.filename;
             setImageUrl(newImage);
         } catch (error) {
-            console.error("Error uploading image:", error);
+            console.error("Error uploading main image:", error);
         }
     };
-    const handleMainImageDelete=()=>{
-        setImageUrl("")
-    }
+
+    const handleMainImageDelete = () => {
+        setImageUrl("");
+    };
+
     return (
         <div>
             {error && <Alert className='sticky' variant="filled" severity="error">{error}.</Alert>}
@@ -189,7 +199,7 @@ const AdminFieldUpdate = () => {
                     <Select
                         value={fieldType}
                         label="Field Type"
-                        onChange={e=>setFieldType(e.target.value)}
+                        onChange={e => setFieldType(e.target.value)}
                     >
                         <MenuItem value="Football">Football</MenuItem>
                         <MenuItem value="Basketball">Basketball</MenuItem>
@@ -201,8 +211,8 @@ const AdminFieldUpdate = () => {
                 <div className='admin-field-input'>
                     <h3>Main Image</h3>
                     <div className="admin-image-container-edit">
-                        {   imageUrl&&
-                            <div className="image-wrapper" >
+                        {imageUrl &&
+                            <div className="image-wrapper">
                                 <span className="material-symbols-outlined close-icon" onClick={handleMainImageDelete}>
                                     close
                                 </span>
@@ -210,17 +220,16 @@ const AdminFieldUpdate = () => {
                             </div>
                         }
                         <div className='empty-image'>
-                            {/* <input type="file" onChange={handleImageUpload} /> */}
-                            <input type="file" onChange={handleMainImageUpload} />
-                            <div className='add-icon'>
-                                <span className="material-symbols-outlined">
-                                    add
-                                </span>
-                            </div>
+                            <input type="file" id="main-file-upload" onChange={handleMainImageUpload} />
+                            <label htmlFor="main-file-upload" className="custom-file-upload">
+                                <div className='add-icon'>
+                                    <span className="material-symbols-outlined">add</span>
+                                </div>
+                                <div className='file-button'>Choose Image</div>
+                            </label>
+                            {imageUrl && <div className='file-name'>{imageUrl}</div>}
                         </div>
                     </div>
-                    
-                    
                 </div>
                 <h3>Opening Hours</h3>
                 <List sx={{ style }}>
@@ -257,13 +266,13 @@ const AdminFieldUpdate = () => {
                         </div>
                     ))}
                     <div className='empty-image'>
-                        <input type="file" onChange={handleImageUpload} />
-                        <div className='add-icon'>
-
-                            <span className="material-symbols-outlined">
-                                add
-                            </span>
-                        </div>
+                        <input type="file" id="file-upload" onChange={handleImageUpload} />
+                        <label htmlFor="file-upload" className="custom-file-upload">
+                            <div className='add-icon'>
+                                <span className="material-symbols-outlined">add</span>
+                            </div>
+                            <div className='file-button'>Choose Image</div>
+                        </label>
                     </div>
                 </div>
                 <h3>Features:</h3>
@@ -294,7 +303,6 @@ const AdminFieldUpdate = () => {
                     </div>
                 </div>
                 <h3>Prices</h3>
-
                 <List sx={style}>
                     <ListItem sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <p>Price Per Hour</p>
@@ -310,9 +318,7 @@ const AdminFieldUpdate = () => {
                                 onChange={e => setPricePerHour(parseInt(e.target.value))}
                                 sx={{ width: "50%" }}
                             />
-
                         </Box>
-
                     </ListItem>
                 </List>
                 <h4>Equipment</h4>
@@ -359,12 +365,12 @@ const AdminFieldUpdate = () => {
                     <ListItem sx={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
                         <p>Referee</p>
                         <TextField
-                                id="standard-basic"
-                                variant="standard"
-                                value={referee.refereeName}
-                                onChange={e => handleRefereeName(e.target.value)}
-                                sx={{ width: "30%" }}
-                            />
+                            id="standard-basic"
+                            variant="standard"
+                            value={referee.refereeName}
+                            onChange={e => handleRefereeName(e.target.value)}
+                            sx={{ width: "30%" }}
+                        />
                         <Box sx={{ display: 'flex', alignItems: "center", width: "10%" }}>
                             <span className="material-symbols-outlined">
                                 attach_money
@@ -377,7 +383,6 @@ const AdminFieldUpdate = () => {
                                 sx={{ width: "30%" }}
                             />
                         </Box>
-
                     </ListItem>
                 </List>
                 <Button variant="contained" onClick={handleSubmit} sx={{ display: "flex", alignItems: "center", alignSelf: "flex-end" }}>
@@ -387,7 +392,7 @@ const AdminFieldUpdate = () => {
                     <p>save</p>
                 </Button>
             </div>
-        </div >
+        </div>
     );
 };
 

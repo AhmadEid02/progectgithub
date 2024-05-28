@@ -127,12 +127,14 @@ const AdminNewsCreate = () => {
                             </div>
                         }
                         <div className='empty-image'>
-                            <input type="file" onChange={handleMainImageUpload} />
-                            <div className='add-icon'>
-                                <span className="material-symbols-outlined">
-                                    add
-                                </span>
-                            </div>
+                            <input type="file" id="file-upload" onChange={handleMainImageUpload} />
+                            <label htmlFor="file-upload" className="custom-file-upload">
+                                <div className='add-icon'>
+                                    <span className="material-symbols-outlined">add</span>
+                                </div>
+                                <div className='file-button'>Choose Image</div>
+                            </label>
+                            {imageUrl && <div className='file-name'>{imageUrl}</div>}
                         </div>
                     </div>
 

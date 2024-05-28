@@ -96,8 +96,8 @@ const Football = () => {
             </div>
             <div className='matches'>
                 <ul>
-                    {matches.map((match, index) => (
-                        <li key={match._id}>
+                    {matches.map((match) => (
+                        <li key={match._id} >
                             <div className='team-logo'>
                                 <img src={`../../../assets/fields/${match.team1Logo}`} alt="" />
                                 <p>{match.team1}</p>
