@@ -308,20 +308,35 @@
   width: 100%;
   justify-content: space-between;
 }
-.credit,.card-num,.card-date{
+
+.credit, .card-num, .card-date {
   display: flex;
-  input{
+  input {
     border: none;
     background-color: transparent;
+    padding: 8px;
   }
 }
-.credit{
+
+.credit {
   justify-content: space-between;
   border: 1px solid black;
   border-radius: 8px;
   padding: 8px;
   margin: 4px;
   width: 100%;
+}
+
+.card-date {
+  width: 200px;
+  justify-content: space-around;
+}
+
+.year-month {
+  /* Apply styles directly to input elements */
+  border: none;
+  background-color: transparent;
+  padding: 8px;
 }
 /* .card-num{
 

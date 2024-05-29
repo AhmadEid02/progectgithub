@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Box, Divider, List, ListItem, ListItemText } from '@mui/material';
+import { Box, Button, Divider, List, ListItem, ListItemText } from '@mui/material';
 const style = {
     p: 0,
     my: 2,
@@ -17,7 +17,11 @@ const style = {
 };
 const AdminFieldDetails = () => {
     const [error, setError] = useState("")
+    const [upcoming, setUpcoming] = useState(false)
+    const [upcomingBooks, setUpcomingBooks] = useState([]);
+    const [books, setBooks] = useState([]);
     const [field, setField] = useState({})
+    const today = new Date();
     const { id } = useParams()
     const navigate = useNavigate();
     const fetchData = async () => {
@@ -26,6 +30,8 @@ const AdminFieldDetails = () => {
             console.log(field);
             const response = await axios.get(`${apiUrl}/api/fields/${id}`);
             setField(response.data);
+            setBooks(response.data.bookings)
+            handleUpcomingList(response.data.bookings);
             console.log(field);
         } catch (error) {
             console.error("Error fetching data:", error);
@@ -38,10 +44,27 @@ const AdminFieldDetails = () => {
             console.log(error)
         }
 
-    },[])
-    const handleEdit=()=>{
+    }, [])
+    const handleUpcomingList = useCallback((bookList) => {
+        const upcomingBookings = bookList.filter(book => {
+            const bookingDate = new Date(book.bookedDate);
+            return bookingDate >= today; // Compare booking date with today's date
+        });
+        setUpcomingBooks(upcomingBookings);
+    }, [today]);
+    const handleEdit = () => {
         navigate(`/admin/field/${field._id}/edit`)
     }
+    const handleUpcomingToggle = () => {
+        setUpcoming(!upcoming)
+    }
+    const filteredBooks = useMemo(() => {
+        if (upcoming) {
+            return upcomingBooks;
+        } else {
+            return books;
+        }
+    }, [upcoming,books])
     return (
         <div>
             {error && <Alert className='sticky' variant="filled" severity="error">{error}.</Alert>}
@@ -138,10 +161,14 @@ const AdminFieldDetails = () => {
 
                     </ListItem>
                 </List>
-                <h2>fields books:{field.bookings?.length}</h2>
+                <h2>fields books:{filteredBooks.length}</h2>
+                <div className="books-row">
+
+                    <Button variant={upcoming ? 'contained' : "outlined"} onClick={handleUpcomingToggle}>upcoming</Button>
+                </div>
                 <List sx={style}>
                     {
-                        field.bookings?.map((book, index) => {
+                        filteredBooks.map((book, index) => {
                             return (
                                 <ListItem sx={{ display: 'flex', justifyContent: "space-between" }}>
                                     <p>{book.bookedDate.split("T")[0]}</p>

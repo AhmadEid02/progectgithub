@@ -404,7 +404,7 @@ body {
 }
 
 .heroImage {
-  align-self: flex-end; 
+  align-self: flex-end;
 }
 
 
@@ -736,23 +736,31 @@ body {
   }
 
 }
+
 .top-stikey {
   position: absolute;
   top: 10px;
-  right: 10px; /* Adjust as needed */
-  color: black; /* Change color if needed */
-  font-size: 39px; /* Adjust font size if needed */
-  cursor: pointer; /* Add cursor pointer for interaction */
+  right: 10px;
+  /* Adjust as needed */
+  color: black;
+  /* Change color if needed */
+  font-size: 39px;
+  /* Adjust font size if needed */
+  cursor: pointer;
+  /* Add cursor pointer for interaction */
   transition: 0.5s;
-  
+
 }
-.top-stikey span{
+
+.top-stikey span {
   transition: 0.5s;
-  cursor: pointer; 
+  cursor: pointer;
 }
-.top-stikey span:hover{
-rotate: 90deg;
-} 
+
+.top-stikey span:hover {
+  rotate: 90deg;
+}
+
 .log-in-container {
   display: flex;
   justify-content: center;
@@ -761,7 +769,8 @@ rotate: 90deg;
   height: 100vh;
   background-color: var(--main);
 }
-.log-in-container h3{
+
+.log-in-container h3 {
   margin: -10px 0px;
   z-index: 100;
   color: #f0f0f0;
@@ -787,12 +796,31 @@ rotate: 90deg;
   margin-bottom: 0.5rem;
   font-weight: 500;
 }
+
 @media only screen and (max-width: 600px) {
   .admin-log-in {
     width: 100%;
     margin: 0px 40px;
   }
-  .log-in-container{
+
+  .log-in-container {
     margin: 0px 40px;
   }
+}
+
+.modify-books-user {
+  display: flex;
+  align-items: center;
+
+}
+
+.modify-books-user img {
+  width: 200px;
+  height: 150px;
+  margin: 20px;
+}
+
+.modify-books-user div {
+  width: 500px;
+  height: 150px;
 }

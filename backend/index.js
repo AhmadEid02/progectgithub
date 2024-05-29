@@ -17,8 +17,11 @@ const adminNewsRoutes = require('./routes/adminNewsRoutes');
 const userNewsRoutes = require('./routes/userNewsRoutes');
 const adminMatchesRoutes = require('./routes/adminMatchesRoutes');
 const userMatchesRoutes = require('./routes/userMatchesRoutes');
+const AdminAccountRoutes = require('./routes/AdminAccountRoutes');
 
 app.use('/user', userRoutes);
+app.use('/admin/account', AdminAccountRoutes);
+
 app.use('/api/fields', fieldsRoutes);
 app.use('/book', bookRoutes);
 app.use('/admin', adminBookRoutes);

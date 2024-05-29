@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 const AdminSideBar = () => {
     const navigate = useNavigate();
     const location = useLocation();
-
+    const admin = JSON.parse(localStorage.getItem('admin'))
     const handleNavigate = (route) => {
         navigate(`/admin/${route}`);
     };
@@ -12,6 +12,12 @@ const AdminSideBar = () => {
     const isActive = (route) => {
         return location.pathname.includes(route);
     };
+    const logout = () => {
+        localStorage.removeItem('admin')
+        // dispatch logout action
+        navigate('/admin')
+        window.location.reload(false);
+    }
 
     return (
         <div className='side-bar'>
@@ -41,7 +47,14 @@ const AdminSideBar = () => {
             </div>
             <div className="side-bar-footer">
                 <img src="../../../assets/defaultUser.jpg" alt="" />
-                <p>admin</p>
+                <p>{admin.userName}</p>
+                
+                <div className="iteam">
+                    <span className="material-symbols-outlined" onClick={logout}>
+                        logout
+                    </span> 
+                </div>
+
             </div>
         </div>
     );

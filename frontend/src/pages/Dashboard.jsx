@@ -32,17 +32,20 @@ const Dashboard = () => {
     fetchData();
   }, [])
   const today = new Date();
+  const todayBookings = bookedFields.filter(field => {
+    const bookingDate = new Date(field.bookedDate);
+    return bookingDate.toDateString() === today.toDateString(); // Compare booking date with today's date
+  });
 
-  // Filter upcoming bookings
   const upcomingBookings = bookedFields.filter(field => {
     const bookingDate = new Date(field.bookedDate);
-    return bookingDate >= today; // Compare booking date with today's date
+    return bookingDate > today; // Compare booking date with today's date
   });
 
   // Filter old bookings
   const oldBookings = bookedFields.filter(field => {
     const bookingDate = new Date(field.bookedDate);
-    return bookingDate < today; // Compare booking date with today's date
+    return bookingDate.toDateString() < today.toDateString(); // Compare booking date with today's date
   });
 
   return (
@@ -53,7 +56,7 @@ const Dashboard = () => {
             {/* <span class="material-symbols-outlined top-stikey">
               settings
             </span> */}
-            <UserSettings/>
+            <UserSettings />
             <div className="card__img"><img src="./assets/sportbackground.jpg" alt="" /> </div>
             <div className="hii">
               <div className='avatar'>
@@ -65,23 +68,26 @@ const Dashboard = () => {
                   <h6 >books <i className="fas fa-edit"></i></h6>
                   <p>{bookedFields.length}</p>
                 </div>
-                <div className="ds projects">
-                  <h6 >tournament <i className="fas fa-project-diagram"></i></h6>
-                  <p>0</p>
-                </div>
-                <div className="ds posts">
-                  <h6 >Posts <i className="fas fa-comments"></i></h6>
-                  <p>0</p>
-                </div>
-                <div className="ds posts">
-                  <h6 >Posts <i className="fas fa-comments"></i></h6>
-                  <p>0</p>
-                </div>
+                
               </div>
             </div>
           </div>
 
           <div>
+            <h3>Todays booking</h3>
+            <div className="booking-list">
+              {loading ?
+                (
+                  <div className="empty-field">
+                    <CircularProgress color="secondary" />
+                  </div>
+                ) : (
+                  todayBookings.length != 0 ?
+                    todayBookings.map((field) => <HorizontalCard book={field} upcoming={false} fieldData={field.fieldData}/>)
+                    :
+                    (<h2>no bookings for today</h2>)
+                )}
+            </div>
             <h3>upcoming booking</h3>
             <div className="booking-list">
               {loading ?
@@ -91,7 +97,7 @@ const Dashboard = () => {
                   </div>
                 ) : (
                   upcomingBookings.length != 0 ?
-                    upcomingBookings.map((field, index) => <HorizontalCard key={index} imageUrl={field.fieldData.imageUrl} id={field.fieldId} name={field.fieldData.name} date={field.bookedDate} bookedDuration={field.bookedDuration} time={field.bookedTime} upcoming={true} />)
+                    upcomingBookings.map((field) => <HorizontalCard book={field} upcoming={true} fieldData={field.fieldData}/>)
                     :
                     (<div className='empty-field'><h2>no upcoming booking</h2></div>)
                 )}
@@ -105,7 +111,7 @@ const Dashboard = () => {
                   </div>
                 ) : (
                   oldBookings.length != 0 ?
-                    oldBookings.map((field, index) => <HorizontalCard key={index} imageUrl={field.fieldData.imageUrl} id={field.fieldId} name={field.fieldData.name} date={field.bookedDate} bookedDuration={field.bookedDuration} time={field.bookedTime} upcoming={false} />)
+                    oldBookings.map((field) => <HorizontalCard book={field} upcoming={false} fieldData={field.fieldData}/>)
                     :
                     (<div className='empty-field'><h2>no old booking</h2></div>)
                 )}

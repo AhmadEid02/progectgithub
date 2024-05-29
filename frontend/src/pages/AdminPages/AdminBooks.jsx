@@ -99,7 +99,7 @@ const AdminBooks = () => {
       <h3>Books</h3>
       <div className="books">
 
-        <div className="books-row">
+        <div className="books-row special">
           <div className='admin-field-input'>
             <h3>Field Type</h3>
             <Select

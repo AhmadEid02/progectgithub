@@ -14,6 +14,7 @@ import Dashboard from './Dashboard'
 import Book from './Book'
 import Payment from './Payment'
 import Footer from '../component/Footer'
+import ModifyBook from './ModifyBook'
 
 const User = () => {
     const [tog, setTog] = useState(true)
@@ -37,6 +38,7 @@ const User = () => {
               <Route path="/signup" element={<Login tog={!tog}/>} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/book/:id" element={<Book />} />
+              <Route path="/book/:id/modify" element={<ModifyBook />} />
               <Route path="/payment" element={<Payment />} />
             </Routes>
 

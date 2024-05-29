@@ -78,7 +78,7 @@ const Vollyball = () => {
           <button onClick={navigateTo}>Book Now!</button>
         </div>
         <div className='heroImage'>
-          <img src="../assets/volleyballplayer3.png" alt="" />
+          <img src="../assets/volleyballpayer4-rbg.png" alt="" />
         </div>
       </div>
       <div className='gallery-title'>

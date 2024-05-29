@@ -44,7 +44,7 @@ const Basketball = () => {
   };
   const fetchMatchesData = async () => {
     try {
-      const apiUrl = `http://localhost:4000/matches/Basket`
+      const apiUrl = `http://localhost:4000/matches/Basketball`
       const response = await axios.get(`${apiUrl}`);
       setMatches(response.data.matches)
     } catch (error) {
@@ -88,7 +88,7 @@ const Basketball = () => {
       <div className="photo-gallery">
         <img src="../assets/basketballfield.jpeg" alt="" />
         <img src="../assets/Football5field.jpg" alt="" />
-        <img src="../assets/Footballfield.jpg" alt="" />
+        <img src="../assets/outdoorBasketball1.jpg" alt="" />
       </div>
       <div className='gallery-title'>
         <h2>Upcoming Matches</h2>

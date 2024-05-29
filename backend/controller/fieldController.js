@@ -87,11 +87,60 @@ const updateFields = async (req, res) => {
     }
 };
 
+const getAllBookingsForField = async (req, res) => {
+    try {
+        const { fieldId } = req.params; // Assume fieldId is passed as a URL parameter
 
+        // Fetch the field with its bookings
+        const field = await Field.findById(fieldId).populate('bookings.userId', 'name email');
+        if (!field) {
+            return res.status(404).json({ message: 'Field not found' });
+        }
+
+        // Initialize a map to store bookings by date
+        const bookingsByDate = new Map();
+
+        // Iterate through the bookings of the field
+        field.bookings.forEach(booking => {
+            if (!booking.userId) {
+                return;
+            }
+
+            const bookingDate = booking.bookedDate.toISOString().split('T')[0]; // Extract the date part
+            const bookedHour = booking.bookedTime;
+
+            // Add the initial booked hour
+            if (!bookingsByDate.has(bookingDate)) {
+                bookingsByDate.set(bookingDate, new Set());
+            }
+            bookingsByDate.get(bookingDate).add(bookedHour);
+
+            // If duration is 120 minutes, add the next hour
+            if (booking.bookedDuration === 120) {
+                const bookedHourInt = parseInt(bookedHour.split(":")[0], 10);
+                const nextHour = (bookedHourInt + 1).toString().padStart(2, '0') + ":00";
+                bookingsByDate.get(bookingDate).add(nextHour);
+            }
+        });
+
+        // Convert the map to an array of objects for the response
+        const formattedBookings = Array.from(bookingsByDate.entries()).map(([date, hours]) => ({
+            date,
+            bookedHours: Array.from(hours).sort()
+        }));
+
+        // Return the formatted bookings as response
+        res.status(200).json(formattedBookings);
+    } catch (error) {
+        console.error('Error fetching bookings:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
 module.exports = {
     getAllFields,
     AddOneFields,
     getOneField,
     updateFields,
-    updateFieldsImagesArray
+    updateFieldsImagesArray,
+    getAllBookingsForField
 }

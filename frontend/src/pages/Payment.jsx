@@ -158,6 +158,7 @@ const Payment = () => {
 
 
                 </div>
+
                 <div className='credit'>
                   <p>card</p>
                   <div className='card-num'>
@@ -167,9 +168,9 @@ const Payment = () => {
                     <input type="text" placeholder='crad number' />
                   </div>
                   <div className='card-date'>
-                    <input type="text" placeholder='MM' />
+                    <input type="text" placeholder='MM' className='year-month'/>
                     <p>/</p>
-                    <input type="text" placeholder='YY' />
+                    <input type="text" placeholder='YY'  className='year-month'/>
                   </div>
 
 

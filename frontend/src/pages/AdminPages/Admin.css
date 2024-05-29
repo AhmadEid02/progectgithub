@@ -115,6 +115,10 @@
     border: 1px solid black;
     border-radius: 8px;
 }
+.books-row.special {
+    align-items: last  baseline;
+    padding-bottom: 0px;
+}
 
 
 

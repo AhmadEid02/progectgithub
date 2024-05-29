@@ -141,7 +141,7 @@ const AdminNewsUpdate = () => {
           />
         </div>
         <div className='admin-field-input'>
-          <h3>Field Type</h3>
+          <h3>News Type</h3>
           <Select
             value={newsType}
             label="Field Type"
